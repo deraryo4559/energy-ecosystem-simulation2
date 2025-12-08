@@ -1,0 +1,317 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.app-content {
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* コントロールパネル */
+.controls-panel {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 1.5rem;
+}
+
+.controls-panel h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.control-group {
+  margin-bottom: 1.25rem;
+}
+
+.control-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.control-group input,
+.control-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.control-group input:focus,
+.control-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.run-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 1rem;
+}
+
+.run-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.run-button:active {
+  transform: translateY(0);
+}
+
+/* チャートコンテナ */
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chart-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-left: 4px solid #667eea;
+  padding-left: 0.75rem;
+}
+
+/* サマリーカード */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h4 {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.card .value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* 概念図 */
+.concept-diagram {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.concept-diagram h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-left: 4px solid #667eea;
+  padding-left: 0.75rem;
+}
+
+.diagram-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.diagram-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.diagram-item {
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  min-width: 150px;
+  transition: all 0.3s;
+}
+
+.diagram-item.pv {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+  border-color: #ffc107;
+}
+
+.diagram-item.household {
+  background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+  border-color: #17a2b8;
+}
+
+.diagram-item.factory {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border-color: #dc3545;
+}
+
+.diagram-item.public {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border-color: #28a745;
+}
+
+.diagram-item.battery {
+  background: linear-gradient(135deg, #e2e3e5 0%, #d6d8db 100%);
+  border-color: #6c757d;
+}
+
+.diagram-item.grid {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-color: #495057;
+}
+
+.diagram-item .icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.diagram-item .label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.diagram-item .value {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.diagram-item .value.purchase {
+  color: #f44336;
+}
+
+.diagram-item .value.sell {
+  color: #4caf50;
+}
+
+.arrows {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: #667eea;
+  text-align: center;
+  line-height: 1;
+}
+
+/* レスポンシブ */
+@media (max-width: 1024px) {
+  .app-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .controls-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diagram-row {
+    flex-direction: column;
+  }
+}
+
