@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>エネルギーエコシステム 概念ダッシュボード</title>
+    <script>
+      // GitHub Pages用: 404ページからindex.htmlにリダイレクト
+      // base pathを考慮
+      var basePath = '/energy-ecosystem-simulation';
+      var pathSegmentsToKeep = basePath.split('/').length - 1;
+      var l = window.location;
+      var redirectPath = basePath + '/index.html';
+      
+      // クエリパラメータやハッシュがある場合は保持
+      if (l.search) {
+        redirectPath += l.search;
+      }
+      if (l.hash) {
+        redirectPath += l.hash;
+      }
+      
+      window.location.replace(redirectPath);
+    </script>
+  </head>
+  <body>
+    <p>リダイレクト中...</p>
+    <script>
+      // フォールバック: 3秒後に手動リダイレクト
+      setTimeout(function() {
+        window.location.href = '/energy-ecosystem-simulation/index.html';
+      }, 3000);
+    </script>
+  </body>
+</html>
+
