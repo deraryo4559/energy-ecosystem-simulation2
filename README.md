@@ -96,6 +96,35 @@ tokyo-gas/
   2. 余剰時: 家庭用蓄電池 → 共用蓄電池 → 売電
   3. 不足時: 家庭用蓄電池 → 共用蓄電池 → 系統購入
 
+## GitHub Pages でのデプロイ
+
+このプロジェクトはGitHub Pagesで自動デプロイされるように設定されています。
+
+### 自動デプロイ
+
+1. `main` ブランチにプッシュすると、GitHub Actionsが自動的にビルドとデプロイを実行します。
+2. デプロイが完了すると、以下のURLでアクセスできます：
+   ```
+   https://deraryo4559.github.io/energy-ecosystem-simulation/
+   ```
+
+### 手動デプロイ（オプション）
+
+手動でデプロイする場合：
+
+```bash
+# gh-pages をインストール（初回のみ）
+npm install --save-dev gh-pages
+
+# ビルドとデプロイ
+npm run deploy
+```
+
+### GitHub Pages の設定
+
+リポジトリの Settings > Pages で以下を設定してください：
+- Source: `GitHub Actions`
+
 ## ライセンス
 
 このプロジェクトは工場誘致支援ソリューションの概念検証用PoCです。
