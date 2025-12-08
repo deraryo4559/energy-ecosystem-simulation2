@@ -1,39 +1,53 @@
+/* レイアウト構造 */
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--background-color);
 }
 
+/* ヘッダー: クリーンでプロフェッショナルなデザイン */
 .app-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .app-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -0.025em;
+  margin: 0;
 }
 
 .app-header p {
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
+/* メインコンテンツエリア */
 .app-content {
   display: flex;
   flex: 1;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  max-width: 1600px;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1440px;
   margin: 0 auto;
   width: 100%;
 }
 
+/* サイドバー（コントロールパネル） */
 .sidebar {
-  width: 300px;
+  width: 320px;
   flex-shrink: 0;
 }
 
@@ -42,78 +56,100 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0; /* Flexbox内でのRechartsのリサイズ問題防止 */
 }
 
-/* コントロールパネル */
+/* パネル共通スタイル */
+.controls-panel,
+.chart-section,
+.concept-diagram,
+.card {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.controls-panel:hover,
+.chart-section:hover,
+.concept-diagram:hover,
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* コントロールパネル詳細 */
 .controls-panel {
-  background: white;
-  border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
-  top: 1.5rem;
+  top: 5rem;
 }
 
 .controls-panel h2 {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
-  color: #333;
-  border-bottom: 2px solid #667eea;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .control-group {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .control-group label {
   display: block;
+  font-size: 0.875rem;
   font-weight: 500;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
-  color: #555;
 }
 
 .control-group input,
 .control-group select {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-  transition: border-color 0.2s;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: #f9fafb;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
 }
 
 .control-group input:focus,
 .control-group select:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary-light);
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-input);
 }
 
 .run-button {
   width: 100%;
-  padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.875rem;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 1rem;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
 }
 
 .run-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
 .run-button:active {
   transform: translateY(0);
 }
 
-/* チャートコンテナ */
+/* チャートセクション */
 .charts-container {
   display: flex;
   flex-direction: column;
@@ -121,77 +157,83 @@
 }
 
 .chart-section {
-  background: white;
-  border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chart-section h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: #333;
-  border-left: 4px solid #667eea;
-  padding-left: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.chart-section h3::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 1.25em;
+  background-color: var(--primary-color);
+  margin-right: 0.75rem;
+  border-radius: 2px;
 }
 
 /* サマリーカード */
 .summary-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
 .card {
-  background: white;
-  border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(to bottom right, #ffffff, #f9fafb);
 }
 
 .card h4 {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
   font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .card .value {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
-  color: #667eea;
+  color: var(--primary-color);
+  letter-spacing: -0.05em;
+  line-height: 1.2;
 }
 
 /* 概念図 */
 .concept-diagram {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: #f8fafc; /* 少し青みがかったグレー */
+  border: 1px solid var(--border-color);
 }
 
 .concept-diagram h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  color: #333;
-  border-left: 4px solid #667eea;
-  padding-left: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .diagram-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem; /* 間隔を広げる */
   align-items: center;
-  padding: 2rem 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .diagram-row {
@@ -200,118 +242,143 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
+  z-index: 2; /* 矢印の上に表示 */
 }
 
 .diagram-item {
-  background: #f8f9fa;
-  border: 2px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 1.5rem;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
   text-align: center;
-  min-width: 150px;
-  transition: all 0.3s;
+  min-width: 160px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.diagram-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* アイテムごとの個別スタイル */
 .diagram-item.pv {
-  background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-  border-color: #ffc107;
+  border-top: 4px solid var(--accent-color);
 }
 
-.diagram-item.household {
-  background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
-  border-color: #17a2b8;
-}
-
-.diagram-item.factory {
-  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
-  border-color: #dc3545;
-}
-
+.diagram-item.household,
+.diagram-item.factory,
 .diagram-item.public {
-  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-  border-color: #28a745;
+  border-top: 4px solid var(--secondary-color);
 }
 
 .diagram-item.battery {
-  background: linear-gradient(135deg, #e2e3e5 0%, #d6d8db 100%);
-  border-color: #6c757d;
+  border-top: 4px solid var(--primary-color);
+  width: 280px; /* 少し大きく */
 }
 
 .diagram-item.grid {
-  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-  border-color: #495057;
+  border-top: 4px solid var(--text-secondary);
+  width: 280px;
 }
 
 .diagram-item .icon {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1;
 }
 
 .diagram-item .label {
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
 }
 
 .diagram-item .value {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-secondary);
+  font-weight: 500;
+  background-color: #f3f4f6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px; /* Pill shape */
   margin-top: 0.5rem;
 }
 
 .diagram-item .value.purchase {
-  color: #f44336;
+  color: #ef4444;
+  background-color: #fee2e2;
 }
 
 .diagram-item .value.sell {
-  color: #4caf50;
+  color: #10b981;
+  background-color: #d1fae5;
 }
 
+/* 矢印アニメーション・スタイル */
 .arrows {
   position: absolute;
+  top: 0;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  pointer-events: none;
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    var(--accent-color) 0%, 
+    var(--accent-color) 20%, 
+    var(--border-color) 20%, 
+    var(--border-color) 40%, 
+    var(--primary-color) 40%, 
+    var(--primary-color) 60%, 
+    var(--border-color) 60%, 
+    var(--border-color) 80%, 
+    var(--text-secondary) 80%
+  );
   z-index: 1;
+  opacity: 0.3;
 }
 
-.arrow {
-  font-size: 2rem;
-  color: #667eea;
-  text-align: center;
-  line-height: 1;
-}
-
-/* レスポンシブ */
+/* レスポンシブ対応 */
 @media (max-width: 1024px) {
   .app-content {
     flex-direction: column;
+    padding: 1rem;
   }
 
   .sidebar {
     width: 100%;
   }
-
+  
   .controls-panel {
     position: static;
   }
-}
-
-@media (max-width: 768px) {
-  .app-header h1 {
-    font-size: 1.5rem;
-  }
-
+  
   .summary-cards {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .diagram-row {
-    flex-direction: column;
-  }
 }
 
+@media (max-width: 640px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .diagram-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .arrows {
+    display: none; /* スマホでは矢印を隠す（レイアウトが崩れやすいため） */
+  }
+}
