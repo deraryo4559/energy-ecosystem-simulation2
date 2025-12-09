@@ -4,10 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/energy-ecosystem-simulation/',
-  build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
-  },
+  base: '/energy-ecosystem-simulation2/',
 })
 
