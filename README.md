@@ -105,7 +105,7 @@ tokyo-gas/
 1. `main` ブランチにプッシュすると、GitHub Actionsが自動的にビルドとデプロイを実行します。
 2. デプロイが完了すると、以下のURLでアクセスできます：
    ```
-   https://deraryo4559.github.io/energy-ecosystem-simulation/
+   https://deraryo4559.github.io/energy-ecosystem-simulation2/
    ```
 
 ### 手動デプロイ（オプション）
